@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta
+	content="width=device-width, initial-scale=1, maximun-scale=1, user-scalable=no"
+	name="viewport" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/bootstrap/css/bootstrap.css}" />
+<title>Listar Cidade</title>
+</head>
+<body>
+
+	<div class="container-fluid">
+		<div class="row">
+			<h1>Listagem de Cidades</h1>
+			<a class="btn btn-success" th:href="@{/cidade/incluir}"><b>Incluir</b>
+				<i class="glyphicon glyphicon-plus"></i> </a>
+			<table
+				class="table table-striped table-bordered 
+		                        table-hover table-collapse">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Nome</th>
+						<th>DDD</th>
+						<th>Estado</th>
+						<th>Ações</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="cid :${listaCidades}">
+						<td th:text="${cid.cidade_id}"></td>
+						<td th:text="${cid.cidade_nome}"></td>
+						<td th:text="${cid.cidade_ddd}"></td>
+						<td th:text="${cid.estado_id}"></td>
+						<td><a id="btnUpdate" class="btn btn-info btn-sm"
+							title="Alterar dados da Cidade"
+							th:href="@{/cidade/alterar/{id}(id=${cid.cidade_id})}"> <i
+								class="glyphicon glyphicon-pencil"></i>
+						</a> <a id="btnExcluir" class="btn btn-danger btn-sm"
+							title="Excluir dados do Cidade"
+							th:href="@{/cidade/excluir/{id}(id=${cid.cidade_id})}"> <i
+								class="glyphicon glyphicon-trash"></i>
+						</a>
+					</tr>
+
+				</tbody>
+
+			</table>
+		</div>
+	</div>
+	<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+	<script type="text/javascript" th:src="@{/bootstrap/js/bootstrap.js}"></script>
+</body>
+</html>

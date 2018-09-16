@@ -1,0 +1,9 @@
+com\clientes\services\ClientesService.class
+com\clientes\configuration\SpringJpaConfig.class
+com\clientes\controllers\ClienteController.class
+com\clientes\services\impl\ClienteServiceImpl.class
+com\clientes\configuration\SpringServiceConfig.class
+com\clientes\models\Clientes.class
+com\clientes\repositories\ClientesRepository.class
+com\clientes\configuration\SpringInitConfig.class
+com\clientes\configuration\SpringMvcConfig.class
