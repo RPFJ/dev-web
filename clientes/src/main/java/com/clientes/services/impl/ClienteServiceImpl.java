@@ -3,11 +3,14 @@ package com.clientes.services.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.clientes.models.Cliente;
 import com.clientes.repositories.ClienteRepository;
+import com.clientes.repositories.filters.ClienteFIlter;
 import com.clientes.services.ClientesService;
 
 @Service
@@ -43,6 +46,11 @@ public class ClienteServiceImpl implements ClientesService {
 	public void removeCliente(Long id) {
 		Cliente cliente = clienteRepository.findOne(id);
 	    clienteRepository.delete(cliente);
+	}
+
+	@Override
+	public Page<Cliente> listarClientePaginacao(ClienteFIlter clienteFilter, Pageable pageable) {
+		return clienteRepository.listarClientePaginacao(clienteFilter, pageable);
 	}
 
 }

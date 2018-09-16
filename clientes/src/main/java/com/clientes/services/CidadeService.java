@@ -11,5 +11,6 @@ public interface CidadeService {
 	public void insertCidade(Cidade cidade);
 	public void updateCidade(Cidade cidade);
 	public void removeCidade(Long id);
+	
 
 }
